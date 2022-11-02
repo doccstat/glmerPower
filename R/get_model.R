@@ -1,23 +1,20 @@
-#' Obtain the power analysis on a model.
+#' Obtain a model from supplied parameters.
 #'
 #' @param fixed_effects List of names of fixed effects.
 #' @param random_effects List of names of random effects.
 #' @param effect_size Effective sample size.
 #' @param effect_sd Effective sample standard deviation.
 #'
-#' @return Power analysis results.
+#' @return model with supplied parameters
 #' @export
-get_power <- function(fixed_effects = NULL,
+get_model <- function(fixed_effects = NULL,
                       random_effects = NULL,
                       effect_size = NULL,
                       effect_sd = NULL) {
     
-    fit <- get_model(fixed_effects,
-                     random_effects,
-                     effect_size,
-                     effect_sd)
+    fit <- # create model object 
+    fit@beta <- effect_size
+    fit@theta <- effect_sd
     
-    # simulate using powersim in simr package 
-    
-  return()
+    return(fit)
 }
