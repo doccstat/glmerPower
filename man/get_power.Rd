@@ -4,10 +4,45 @@
 \alias{get_power}
 \title{Obtain the power analysis on a model.}
 \usage{
-get_power(fit = NULL, nsim = 1000, seed = NULL)
+get_power(
+  fixed_effects = NULL,
+  effect_size = NULL,
+  discrete_indicators = NULL,
+  discrete_effects_levels = NULL,
+  random_effect = NULL,
+  random_effect_levels = NULL,
+  random_effect_cov = NULL,
+  residual_sd = 1,
+  response = NULL,
+  family = NULL,
+  nsim = 1000,
+  seed = NULL
+)
 }
 \arguments{
-\item{fit}{A fitted model object.}
+\item{fixed_effects}{List of names of fixed effects including both continuous
+and categorical variables.}
+
+\item{effect_size}{Effect size of the fixed effects.}
+
+\item{discrete_indicators}{List of boolean values indicating whether the
+corresponding fixed effect is discrete or continuous.}
+
+\item{discrete_effects_levels}{List of levels of the discrete effects.
+Corresponding elements are NULL for continuous effects and a vector of
+levels for discrete effects.}
+
+\item{random_effect}{List of names of random effects.}
+
+\item{random_effect_levels}{Levels of the random effects.}
+
+\item{random_effect_cov}{Variance and covariances for random effects.}
+
+\item{residual_sd}{Residual standard deviation.}
+
+\item{response}{Response variable name.}
+
+\item{family}{Family of model.}
 
 \item{nsim}{number of simulations to perform}
 

@@ -12,15 +12,16 @@ residual_sd <- 1
 response <- "y"
 family <- "poisson"
 
-fit <- get_model(fixed_effects = fixed_effects,
-                 effect_size = effect_size,
-                 discrete_indicators = discrete_indicators,
-                 discrete_effects_levels = discrete_effects_levels,
-                 random_effect = random_effect,
-                 random_effect_levels = random_effect_levels,
-                 random_effect_cov = random_effect_cov,
-                 residual_sd = residual_sd,
-                 response = response,
-                 family = family)
-get_power(fit = fit, nsim = 5, seed = NULL)
+get_power(fixed_effects = fixed_effects,
+          effect_size = effect_size,
+          discrete_indicators = discrete_indicators,
+          discrete_effects_levels = discrete_effects_levels,
+          random_effect = random_effect,
+          random_effect_levels = random_effect_levels,
+          random_effect_cov = random_effect_cov,
+          residual_sd = residual_sd,
+          response = response,
+          family = family,
+          nsim = 5,
+          seed = NULL)
 ```
