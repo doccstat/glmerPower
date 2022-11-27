@@ -37,13 +37,13 @@ get_model <- function(fixed_effects = NULL,
       data[[fixed_effect]] <- seq(0, 1, length.out = 10)
     }
   }
-  data[[random_effect]] <- random_effects_levels
+  data[[random_effect]] <- random_effect_levels
   data <- expand.grid(data)
   fit <- if (is.null(family)) {
     simr::makeLmer(
       formula = stats::as.formula(paste0(response, " ~ ",
                                          paste(fixed_effects, collapse = " + "),
-                                         " + (1 | ", random_effects, ")")),
+                                         " + (1 | ", random_effect, ")")),
       fixef = effect_size,
       VarCorr = random_effect_cov,
       sigma = residual_sd,
@@ -56,7 +56,7 @@ get_model <- function(fixed_effects = NULL,
                                          " + (1 | ", random_effect, ")")),
       family = family,
       fixef = effect_size,
-      VarCorr = random_effects_cov,
+      VarCorr = random_effect_cov,
       data = data
     )
   }

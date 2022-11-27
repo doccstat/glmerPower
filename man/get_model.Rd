@@ -8,10 +8,10 @@ get_model(
   fixed_effects = NULL,
   effect_size = NULL,
   discrete_indicators = NULL,
-  discrete_effect_levels = NULL,
+  discrete_effects_levels = NULL,
   random_effect = NULL,
   random_effect_levels = NULL,
-  random_effects_cov = NULL,
+  random_effect_cov = NULL,
   residual_sd = 1,
   response = NULL,
   family = NULL
@@ -26,7 +26,7 @@ and categorical variables.}
 \item{discrete_indicators}{List of boolean values indicating whether the
 corresponding fixed effect is discrete or continuous.}
 
-\item{discrete_effect_levels}{List of levels of the discrete effects.
+\item{discrete_effects_levels}{List of levels of the discrete effects.
 Corresponding elements are NULL for continuous effects and a vector of
 levels for discrete effects.}
 
@@ -34,7 +34,7 @@ levels for discrete effects.}
 
 \item{random_effect_levels}{Levels of the random effects.}
 
-\item{random_effects_cov}{Variance and covariances for random effects.}
+\item{random_effect_cov}{Variance and covariances for random effects.}
 
 \item{residual_sd}{Residual standard deviation.}
 
