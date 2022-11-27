@@ -15,6 +15,7 @@
 #' @param residual_sd Residual standard deviation.
 #' @param response Response variable name.
 #' @param family Family of model.
+#' @param comparison_formula Formula for the comparison model.
 #' @param nsim number of simulations to perform
 #' @param seed random number generator seed, for reproducible results
 #'
@@ -30,6 +31,7 @@ compare_model <- function(fixed_effects = NULL,
                           residual_sd = 1,
                           response = NULL,
                           family = NULL,
+                          comparison_formula = NULL,
                           nsim = 1000,
                           seed = NULL) {
 
@@ -45,7 +47,7 @@ compare_model <- function(fixed_effects = NULL,
                    family = family)
 
   simr::powerSim(fit = fit,
-                 test = simr::fcompare(submodel_formula),
+                 test = simr::fcompare(comparison_formula),
                  nsim = nsim,
                  seed = seed)
 }

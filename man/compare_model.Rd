@@ -16,6 +16,7 @@ compare_model(
   residual_sd = 1,
   response = NULL,
   family = NULL,
+  comparison_formula = NULL,
   nsim = 1000,
   seed = NULL
 )
@@ -44,6 +45,8 @@ levels for discrete effects.}
 \item{response}{Response variable name.}
 
 \item{family}{Family of model.}
+
+\item{comparison_formula}{Formula for the comparison model.}
 
 \item{nsim}{number of simulations to perform}
 
