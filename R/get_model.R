@@ -5,10 +5,11 @@
 #' @param effect_size Effect size of the fixed effects.
 #' @param discrete_indicators List of boolean values indicating whether the
 #'   corresponding fixed effect is discrete or continuous.
-#' @param discrete_effects_levels List of levels of the discrete effects.
+#' @param discrete_effect_levels List of levels of the discrete effects.
 #'   Corresponding elements are NULL for continuous effects and a vector of
 #'   levels for discrete effects.
 #' @param random_effect List of names of random effects.
+#' @param random_effect_levels Levels of the random effects.
 #' @param random_effects_cov Variance and covariances for random effects.
 #' @param residual_sd Residual standard deviation.
 #' @param response Response variable name.
@@ -19,7 +20,7 @@
 get_model <- function(fixed_effects = NULL,
                       effect_size = NULL,
                       discrete_indicators = NULL,
-                      discrete_effects_levels = NULL,
+                      discrete_effect_levels = NULL,
                       random_effect = NULL,
                       random_effect_levels = NULL,
                       random_effects_cov = NULL,
@@ -31,7 +32,7 @@ get_model <- function(fixed_effects = NULL,
   for (fixed_effect_index in seq_len(length(fixed_effects))) {
     fixed_effect <- fixed_effects[fixed_effect_index]
     if (discrete_indicators[fixed_effect_index]) {
-      data[[fixed_effect]] <- discrete_effects_levels[[fixed_effect_index]]
+      data[[fixed_effect]] <- discrete_effect_levels[[fixed_effect_index]]
     } else {
       data[[fixed_effect]] <- seq(0, 1, length.out = 10)
     }

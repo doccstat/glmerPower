@@ -6,9 +6,12 @@
 \usage{
 get_power(
   fixed_effects = NULL,
-  random_effects = NULL,
   effect_size = NULL,
-  effect_var = NULL,
+  discrete_indicators = NULL,
+  discrete_effects_levels = NULL,
+  random_effect = NULL,
+  random_effects_cov = NULL,
+  residual_sd = 1,
   response = NULL,
   family = NULL,
   nsim = 1000,
@@ -16,23 +19,31 @@ get_power(
 )
 }
 \arguments{
-\item{fixed_effects}{List of names of fixed effects.}
+\item{fixed_effects}{List of names of fixed effects including both continuous
+and categorical variables.}
 
-\item{random_effects}{List of names of random effects.}
+\item{effect_size}{Effect size of the fixed effects.}
 
-\item{effect_size}{Effective sample size.}
+\item{discrete_indicators}{List of boolean values indicating whether the
+corresponding fixed effect is discrete or continuous.}
 
-\item{response}{Response variable}
+\item{discrete_effects_levels}{List of levels of the discrete effects.
+Corresponding elements are NULL for continuous effects and a vector of
+levels for discrete effects.}
 
-\item{family}{Family of model for generalized linear mixed model}
+\item{random_effect}{List of names of random effects.}
+
+\item{random_effects_cov}{Variance and covariances for random effects.}
+
+\item{residual_sd}{Residual standard deviation.}
+
+\item{response}{Response variable name.}
+
+\item{family}{Family of model.}
 
 \item{nsim}{number of simulations to perform}
 
 \item{seed}{random number generator seed, for reproducible results}
-
-\item{fit}{lme4 object}
-
-\item{effect_sd}{Effective sample standard deviation.}
 }
 \value{
 Power analysis results.
