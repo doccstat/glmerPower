@@ -1,6 +1,6 @@
 source("get_model.R")
 
-#' Obtain the power analysis on a model.
+#' Test for significant difference in power between a model and a simpler submodel.
 #'
 #' @param fit lme4 object
 #' @param fixed_effects List of names of fixed effects.
@@ -14,7 +14,7 @@ source("get_model.R")
 #'
 #' @return Power analysis results.
 #' @export
-get_power <- function(fixed_effects = NULL,
+compare_model <- function(fixed_effects = NULL,
                       random_effects = NULL,
                       effect_size = NULL,
                       effect_var = NULL,
@@ -22,7 +22,7 @@ get_power <- function(fixed_effects = NULL,
                       family = NULL,
                       nsim = 1000,
                       seed = NULL) {
-
+    
     fit <- get_model(fixed_effects = NULL,
                      random_effects = NULL,
                      effect_size = NULL,
@@ -30,7 +30,7 @@ get_power <- function(fixed_effects = NULL,
                      response = NULL,
                      family = NULL)
     
-    sim <- simr::powerSim(fit = fit, nsim = nsim, seed = seed) 
+    sim <- simr::powerSim(model, test = fcompare(submodel_formula), nsim = nsim, seed = seed)
     
-  return(sim)
+    return(sim)
 }
