@@ -1,5 +1,3 @@
-source("get_model.R")
-
 #' Obtain the power analysis on a model.
 #'
 #' @param fit lme4 object

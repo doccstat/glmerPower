@@ -1,5 +1,3 @@
-source("get_model.R")
-
 #' Test for significant difference in power between a model and a simpler submodel.
 #'
 #' @param fit lme4 object
