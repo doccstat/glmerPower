@@ -38,9 +38,9 @@ get_model <- function(fixed_effects = NULL,
   data <- expand.grid(data)
   fit <- if (is.null(family)) {
     simr::makeLmer(
-      formula = as.formula(paste0(response, " ~ ",
-                                  paste(fixed_effects, collapse = " + "),
-                                  " + (1 | ", random_effect, ")")),
+      formula = stats::as.formula(paste0(response, " ~ ",
+                                         paste(fixed_effects, collapse = " + "),
+                                         " + (1 | ", random_effect, ")")),
       fixef = fixed_effects,
       VarCorr = random_effects_cov,
       sigma = residual_sd,
@@ -48,9 +48,9 @@ get_model <- function(fixed_effects = NULL,
     )
   } else {
     simr::makeGlmer(
-      formula = as.formula(paste0(response, " ~ ",
-                                  paste(fixed_effects, collapse = " + "),
-                                  " + (1 | ", random_effect, ")")),
+      formula = stats::as.formula(paste0(response, " ~ ",
+                                         paste(fixed_effects, collapse = " + "),
+                                         " + (1 | ", random_effect, ")")),
       family = family,
       fixef = fixed_effects,
       VarCorr = random_effects_cov,
