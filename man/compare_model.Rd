@@ -2,41 +2,22 @@
 % Please edit documentation in R/compare_model.R
 \name{compare_model}
 \alias{compare_model}
-\title{Test for significant difference in power between a model and a simpler submodel.}
+\title{Test for significant difference in power between a model and a simpler
+submodel.}
 \usage{
-compare_model(
-  fixed_effects = NULL,
-  random_effects = NULL,
-  effect_size = NULL,
-  effect_var = NULL,
-  response = NULL,
-  family = NULL,
-  nsim = 1000,
-  seed = NULL
-)
+compare_model(fit = NULL, nsim = 1000, seed = NULL)
 }
 \arguments{
-\item{fixed_effects}{List of names of fixed effects.}
-
-\item{random_effects}{List of names of random effects.}
-
-\item{effect_size}{Effective sample size.}
-
-\item{response}{Response variable}
-
-\item{family}{Family of model for generalized linear mixed model}
+\item{fit}{lme4 object}
 
 \item{nsim}{number of simulations to perform}
 
 \item{seed}{random number generator seed, for reproducible results}
-
-\item{fit}{lme4 object}
-
-\item{effect_sd}{Effective sample standard deviation.}
 }
 \value{
 Power analysis results.
 }
 \description{
-Test for significant difference in power between a model and a simpler submodel.
+Test for significant difference in power between a model and a simpler
+submodel.
 }
