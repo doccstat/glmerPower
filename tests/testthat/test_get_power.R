@@ -25,24 +25,19 @@ fit <- get_model(fixed_effects = fixed_effects,
 
 fit
 
+sim <- simr::powerSim(fit, nsim = 5, seed = 1)
 
-
-
-
-
-var1 <- c(.1, .2)
-var2 <- as.factor(c((0:4)))
-var3 <- as.factor(c("a", "b", "c", "d"))
-subj_id <- as.factor((1:10))
-response <- seq(2, 3, by = .5)
-data <- expand.grid(var1 = var1, var2 = var2, var3 = var3, subj_id = subj_id, response = response)
-
-typeof(data$response) 
-var1 <- rnorm(100)
-var2 <- binom(100, size = 10, prob = .4)
-var3 <- c("a", "b", "c", "d")
-subj_id <- as.factor(rep(1:10))
-data <- data.frame(list(response = response, var1))
+sim <- get_power(fixed_effects,
+          effect_size,
+          discrete_indicators,
+          discrete_effects_levels,
+          random_effect,
+          random_effect_cov,
+          residual_sd,
+          response,
+          family,
+          nsim,
+          1)
 
 test_that("get_power works", {
   

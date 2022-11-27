@@ -9,7 +9,7 @@
 #'   Corresponding elements are NULL for continuous effects and a vector of
 #'   levels for discrete effects.
 #' @param random_effect List of names of random effects.
-#' @param random_effects_cov Variance and covariances for random effects.
+#' @param random_effect_cov Variance and covariances for random effects.
 #' @param residual_sd Residual standard deviation.
 #' @param response Response variable name.
 #' @param family Family of model.
@@ -23,22 +23,22 @@ get_power <- function(fixed_effects = NULL,
                       discrete_indicators = NULL,
                       discrete_effects_levels = NULL,
                       random_effect = NULL,
-                      random_effects_cov = NULL,
+                      random_effect_cov = NULL,
                       residual_sd = 1,
                       response = NULL,
                       family = NULL,
                       nsim = 1000,
                       seed = NULL) {
 
-    fit <- get_model(fixed_effects = NULL,
-                     effect_size = NULL,
-                     discrete_indicators = NULL,
-                     discrete_effects_levels = NULL,
-                     random_effect = NULL,
-                     random_effects_cov = NULL,
-                     residual_sd = 1,
-                     response = NULL,
-                     family = NULL,)
+    fit <- get_model(fixed_effects,
+                     effect_size,
+                     discrete_indicators,
+                     discrete_effects_levels,
+                     random_effect,
+                     random_effect_cov,
+                     residual_sd,
+                     response,
+                     family)
     
     sim <- simr::powerSim(fit = fit, nsim = nsim, seed = seed) 
     
