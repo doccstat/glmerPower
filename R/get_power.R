@@ -9,6 +9,7 @@
 #'   Corresponding elements are NULL for continuous effects and a vector of
 #'   levels for discrete effects.
 #' @param random_effect List of names of random effects.
+#' @param random_effect_levels Levels of the random effects.
 #' @param random_effect_cov Variance and covariances for random effects.
 #' @param residual_sd Residual standard deviation.
 #' @param response Response variable name.
@@ -23,6 +24,7 @@ get_power <- function(fixed_effects = NULL,
                       discrete_indicators = NULL,
                       discrete_effects_levels = NULL,
                       random_effect = NULL,
+                      random_effect_levels = NULL,
                       random_effect_cov = NULL,
                       residual_sd = 1,
                       response = NULL,
@@ -35,6 +37,7 @@ get_power <- function(fixed_effects = NULL,
                      discrete_indicators,
                      discrete_effects_levels,
                      random_effect,
+                     random_effect_levels,
                      random_effect_cov,
                      residual_sd,
                      response,
