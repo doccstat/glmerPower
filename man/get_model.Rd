@@ -6,28 +6,38 @@
 \usage{
 get_model(
   fixed_effects = NULL,
-  random_effects = NULL,
   effect_size = NULL,
-  effect_sd = NULL,
+  discrete_indicators = NULL,
+  discrete_effects_levels = NULL,
+  random_effect = NULL,
+  random_effects_cov = NULL,
+  residual_sd = 1,
   response = NULL,
-  family = NULL,
-  size = NULL
+  family = NULL
 )
 }
 \arguments{
-\item{fixed_effects}{List of names of fixed effects.}
+\item{fixed_effects}{List of names of fixed effects including both continuous
+and categorical variables.}
 
-\item{random_effects}{List of names of random effects.}
+\item{effect_size}{Effect size of the fixed effects.}
 
-\item{effect_size}{Effective sample size.}
+\item{discrete_indicators}{List of boolean values indicating whether the
+corresponding fixed effect is discrete or continuous.}
 
-\item{effect_sd}{Effective sample standard deviation.}
+\item{discrete_effects_levels}{List of levels of the discrete effects.
+Corresponding elements are NULL for continuous effects and a vector of
+levels for discrete effects.}
 
-\item{response}{Response variable}
+\item{random_effect}{List of names of random effects.}
 
-\item{family}{Family of model}
+\item{random_effects_cov}{Variance and covariances for random effects.}
 
-\item{size}{Number of observations}
+\item{residual_sd}{Residual standard deviation.}
+
+\item{response}{Response variable name.}
+
+\item{family}{Family of model.}
 }
 \value{
 model with supplied parameters
